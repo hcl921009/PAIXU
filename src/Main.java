@@ -6,14 +6,14 @@ public class Main {
         for (int i = 0; i < a.length; i++){
             System.out.print(a[i]+" ");
         }
-        sortCharuXier(a);
+        sortXuanzeSimple(a);
         System.out.println();
         System.out.println("排序之后：");
         for (int i = 0; i < a.length; i++){
             System.out.print(a[i]+" ");
         }
     }
-
+    //插入排序
     public static void sortCharuZhijie(int[] a){
         for (int i=1;i<a.length;i++){
             int temp = a[i];
@@ -62,7 +62,7 @@ public class Main {
                 for(int i=x+d;i<a.length;i=i+d){/*遍历每组的数据,直接插入排序*/
                     int temp = a[i];
                     int j;
-                    for(j = i-d;j>0&&a[j]>temp;j=j-d){
+                    for(j = i-d;j>=0&&a[j]>temp;j=j-d){
                         a[j+d] = a[j];
                     }
                     a[j+d] = temp;
@@ -73,5 +73,21 @@ public class Main {
             }
         }
     }
+    //选择排序
+    public static void sortXuanzeSimple(int[] a){
+        for(int i=0;i<a.length;i++){
+            int min = a[i];
+            int n = i;
+            for(int j=i+1;j<a.length;j++){
+                if(min > a[j]){
+                    min = a[j];
+                    n = j;
+                }
+            }
+            a[n]=a[i];
+            a[i]=min;
+        }
+    }
+
 
 }
