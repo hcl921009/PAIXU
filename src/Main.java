@@ -6,12 +6,16 @@ public class Main {
         for (int i = 0; i < a.length; i++){
             System.out.print(a[i]+" ");
         }
-        sortXuanzeSimple(a);
+        long strat = System.nanoTime();
+        sortCharuXier(a);
+        long run = System.nanoTime() - strat;
         System.out.println();
         System.out.println("排序之后：");
         for (int i = 0; i < a.length; i++){
             System.out.print(a[i]+" ");
         }
+        System.out.println();
+        System.out.println("运行时间为："+run+"纳秒");
     }
     //插入排序
     public static void sortCharuZhijie(int[] a){
@@ -86,6 +90,18 @@ public class Main {
             }
             a[n]=a[i];
             a[i]=min;
+        }
+    }
+
+    public static void sortXuanzeMaopao(int[] a){
+        for(int i = 0;i<a.length-1;i++){
+            for(int j = 0;j<a.length-1-i;j++){
+                if(a[j]>a[j+1]){
+                    int temp = a[j];
+                    a[j]=a[j+1];
+                    a[j+1] = temp;
+                }
+            }
         }
     }
 
